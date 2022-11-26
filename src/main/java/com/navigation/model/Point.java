@@ -1,0 +1,64 @@
+package com.navigation.model;
+
+import java.util.Objects;
+
+public class Point {
+    private float x;
+    private float y;
+
+    public Point() {}
+
+    public Point(float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public Point sum(Point point) {
+        return new Point(this.getX() + point.getX(), this.getY() + point.getY());
+    }
+
+    public Point diff(Point point) {
+        return new Point(this.getX() - point.getX(), this.getY() - point.getY());
+    }
+
+    public Point multiply(float num) {
+        return new Point(this.getX() * num, this.getY() * num);
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Point)) return false;
+        Point point = (Point) o;
+        return Float.compare(point.x, x) == 0 && Float.compare(point.y, y) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
+}
